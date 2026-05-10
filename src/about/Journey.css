@@ -1,0 +1,162 @@
+/* ===== SECTION ===== */
+.about-journey {
+  padding: 6rem 2rem;
+  background: #e6d3b7;
+ 
+}
+
+.about-journey__inner {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ===== HEADER ===== */
+.about-journey__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-labeli {
+  position: relative;
+  display: inline-block;
+  color: var(--saffron);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* LEFT LINE */
+.about-labeli::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -60px;
+  width: 45px;
+  height: 1px;
+  background: var(--saffron);
+  transform: translateY(-50%);
+}
+
+/* RIGHT LINE */
+.about-labeli::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -60px;
+  width: 45px;
+  height: 1px;
+  background: var(--saffron);
+  transform: translateY(-50%);
+}
+
+.about-journey__title {
+  font-family: var(--ff-display);
+  font-size: 2.5rem;
+  color: var(--ink);
+}
+
+.about-journey__title em {
+  color: var(--saffron);
+  font-style: italic;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+/* vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--gold-lt);
+}
+
+/* ===== ITEM ===== */
+.timeline__item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 2rem;
+}
+
+/* dot */
+.timeline__dot {
+  position: absolute;
+  left: -2px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: var(--saffron);
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(200, 65, 11, 0.15);
+}
+
+/* year */
+.timeline__year {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--saffron);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+/* title */
+.timeline__title {
+  font-family: var(--ff-display);
+  font-size: 1.5rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+/* text */
+.timeline__text {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+/* ===== LAST ITEM REMOVE SPACE ===== */
+.timeline__item:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .about-journey {
+    padding: 4rem 1.5rem;
+  }
+
+  .about-journey__title {
+    font-size: 2rem;
+  }
+
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline__item {
+    padding-left: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-journey {
+    padding: 4rem 1rem;
+  }
+
+  .about-journey__title {
+    font-size: 1.7rem;
+  }
+
+  .timeline__title {
+    font-size: 1.3rem;
+  }
+}

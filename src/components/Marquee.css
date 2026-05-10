@@ -1,0 +1,48 @@
+/* ===== MARQUEE STRIP ===== */
+.marquee-strip {
+  position: relative;
+  background: linear-gradient(135deg, #c8410b, #b8860b);
+  padding: 12px 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ===== TRACK (MOVING PART) ===== */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 18s linear infinite;
+}
+
+/* ===== EACH ITEM ===== */
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 40px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* ===== DOT ===== */
+.marquee-dot {
+  width: 6px;
+  height: 6px;
+  background: #f5d08a;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

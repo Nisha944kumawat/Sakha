@@ -1,0 +1,318 @@
+/* =========================
+   SakhaCta.css
+========================= */
+
+.sakha-cta {
+  position: relative;
+  overflow: hidden;
+
+  padding: 30px 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* ===== BACKGROUND ===== */
+background-image:
+  linear-gradient(
+    to right,
+
+    /* LEFT SIDE COLORS */
+    rgba(122, 92, 58, 0.92) 0%,
+    rgba(200, 65, 11, 0.88) 22%,
+    rgba(26, 10, 0, 0.78) 42%,
+
+    /* SOFT FADE */
+    rgba(0, 0, 0, 0.28) 58%,
+
+    /* TRANSPARENT */
+    rgba(0, 0, 0, 0.04) 72%,
+
+    transparent 100%
+  ),
+
+  url("../about/brands1.png");
+
+  /* LEFT = gradient | RIGHT = image */
+  background-position: left center, right center;
+
+  /* first gradient | second image */
+  background-size: cover, contain;
+
+  background-repeat: no-repeat;
+
+  background-color: #000;
+}
+
+/* ===== SOFT OVERLAY ===== */
+
+.sakha-cta::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255,255,255,0.06),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(255,255,255,0.04),
+      transparent 35%
+    );
+
+  pointer-events: none;
+}
+
+/* =========================
+   INNER CONTENT
+========================= */
+
+.sakha-cta__inner {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1200px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  text-align: left;
+
+  padding-left: 40px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.sakha-cta__title {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(54px, 6vw, 92px);
+  font-weight: 700;
+
+  line-height: 1.02;
+  letter-spacing: -1px;
+
+  color: #b8860b;
+
+  margin-bottom: 24px;
+
+  text-shadow:
+    0 3px 14px rgba(0, 0, 0, 0.35);
+}
+
+.sakha-cta__title em {
+  font-style: italic;
+  font-weight: 600;
+
+  color: #c8410b;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.sakha-cta__text {
+  max-width: 720px;
+
+  font-family: "Jost", sans-serif;
+
+  font-size: clamp(18px, 1.7vw, 24px);
+  font-weight: 400;
+
+  line-height: 1.75;
+
+  color: rgba(255, 255, 255, 0.94);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.sakha-cta__btn {
+  margin-top: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  min-width: 240px;
+  height: 72px;
+
+  padding: 0 42px;
+
+  border-radius: 999px;
+
+ background: linear-gradient(
+    135deg,
+    var(--saffron),
+    var(--gold-lt)
+  );
+
+  font-family: "Jost", sans-serif;
+
+  font-size: 28px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  color: white;
+
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.sakha-cta__btn:hover {
+  transform: translateY(-4px);
+
+   background: linear-gradient(
+    135deg,
+    var(--gold-lt),
+    var(--saffron)
+  );
+
+  color: white;
+
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.28);
+}
+
+.sakha-cta__btn:active {
+  transform: scale(0.97);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+
+  .sakha-cta {
+    padding: 60px 24px;
+
+    background-size: cover, cover;
+  }
+
+  .sakha-cta__inner {
+    padding-left: 20px;
+  }
+
+  .sakha-cta__title {
+    font-size: clamp(46px, 7vw, 70px);
+
+    margin-bottom: 18px;
+  }
+
+  .sakha-cta__text {
+    max-width: 620px;
+
+    font-size: 19px;
+  }
+
+  .sakha-cta__btn {
+    min-width: 220px;
+    height: 66px;
+
+    font-size: 24px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .sakha-cta {
+    padding: 55px 20px;
+
+    background-position: center;
+    background-size: cover;
+
+    justify-content: center;
+  }
+
+  .sakha-cta::before {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.82),
+        rgba(0,0,0,0.68)
+      );
+  }
+
+  .sakha-cta__inner {
+    align-items: center;
+
+    text-align: center;
+
+    padding-left: 0;
+  }
+
+  .sakha-cta__title {
+    font-size: clamp(38px, 10vw, 58px);
+
+    line-height: 1.08;
+
+    margin-bottom: 18px;
+  }
+
+  .sakha-cta__text {
+    font-size: 17px;
+
+    line-height: 1.7;
+  }
+
+  .sakha-cta__btn {
+    margin-top: 28px;
+
+    width: 100%;
+    max-width: 280px;
+
+    height: 60px;
+
+    font-size: 22px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .sakha-cta {
+    padding: 50px 18px;
+  }
+
+  .sakha-cta__title {
+    font-size: 34px;
+  }
+
+  .sakha-cta__text {
+    font-size: 15.5px;
+  }
+
+  .sakha-cta__btn {
+    height: 56px;
+
+    font-size: 19px;
+
+    padding: 0 28px;
+  }
+}

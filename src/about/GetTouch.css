@@ -1,0 +1,133 @@
+/* =========================
+   CTA SECTION
+========================= */
+.about-cta {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, var(--ink) 0%, #3d1008 100%);
+  text-align: center;
+  color: var(--white);
+}
+
+
+/* =========================
+   LABEL (LET'S CONNECT)
+========================= */
+.about-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--gold-lt);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.about-label::before,
+.about-label::after {
+  content: "";
+  width: 60px;
+  height: 1px;
+  background: var(--gold-lt);
+  opacity: 0.6;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+.about-cta__title {
+  font-family: var(--ff-display);
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+
+.about-cta__title em {
+  color: var(--gold-lt);
+  font-style: italic;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+.about-cta__text {
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+
+/* =========================
+   BUTTONS WRAPPER
+========================= */
+.about-cta__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+
+/* =========================
+   PRIMARY BUTTON
+========================= */
+.btn-primary {
+  background: linear-gradient(135deg, var(--saffron), var(--gold-lt));
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 20px rgba(200, 65, 11, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(200, 65, 11, 0.4);
+}
+
+
+/* =========================
+   GHOST BUTTON
+========================= */
+.btn-ghost {
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .about-cta__title {
+    font-size: 2.2rem;
+  }
+
+  .about-cta__text {
+    font-size: 0.95rem;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,172 @@
+/* ===== PROCESS SECTION ===== */
+.process {
+  padding: 3rem 2rem 6rem;
+  background: var(--ink);
+}
+
+.process__inner {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===== HEADER ===== */
+.process__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-label {
+  color: var(--saffron);
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.process__title {
+  font-family: var(--ff-display);
+  font-size: 3rem;
+  color: var(--white);
+}
+
+.process__title em {
+  color: var(--gold);
+}
+
+.process__sub {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ===== GRID ===== */
+.process__timeline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+/* CENTER LINE */
+.process__timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background: rgba(48, 44, 44, 0.1);
+}
+
+/* ===== ITEM ===== */
+.process__tl-item {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+}
+
+/* RIGHT SIDE BORDER */
+.process__tl-item:nth-child(even) {
+  border-left: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ===== NUMBER ===== */
+.process__tl-num {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+/* ===== BODY ===== */
+.process__tl-body {
+  display: flex;
+  gap: 1rem;
+}
+
+.process__tl-icon {
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+.process__tl-title {
+  color: var(--white);
+  font-family: var(--ff-display);
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.process__tl-desc {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ===== CARD HOVER ===== */
+.process__tl-item:hover {
+  background: rgba(255,255,255,0.03);
+  border-radius: 14px;
+}
+
+/* 🔥 MAIN FIX: NUMBER CHANGE ON HOVER */
+.process__tl-item:hover .process__tl-num {
+  background: linear-gradient(to right, #ff8c00, #ffa500);
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 12px rgba(255,165,0,0.5);
+}
+
+/* ===== SPECIAL CARDS (04 & 07) ===== */
+.process__tl-item:nth-child(4),
+.process__tl-item:nth-child(7) {
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+}
+
+/* ===== LAST CARD (10 FULL WIDTH) ===== */
+.process__tl-item:last-child {
+  grid-column: span 2;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 2rem 3rem;
+  margin-top: 2rem;
+  background: linear-gradient(
+    90deg,
+    rgba(200,65,11,0.2),
+    rgba(255,140,0,0.15)
+  );
+}
+
+/* LAST CARD NUMBER */
+.process__tl-item:last-child .process__tl-num {
+  background: linear-gradient(to right, #ff8c00, #ffa500);
+  color: #fff;
+  border: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .process__timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .process__timeline::before {
+    display: none;
+  }
+
+  .process__tl-item {
+    border-left: none !important;
+  }
+
+  .process__tl-item:last-child {
+    grid-column: span 1;
+  }
+}

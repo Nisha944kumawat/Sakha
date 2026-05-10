@@ -1,0 +1,149 @@
+/* ===== TESTIMONIALS SECTION ===== */
+.testimonials {
+  padding:  3rem 2rem 6rem;
+  background: var(--ink);
+  overflow: hidden;
+}
+
+.testimonials__inner {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===== HEADER ===== */
+.testimonials__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-label {
+  color: var(--gold-lt);
+  letter-spacing: 3px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.section-label::before,
+.section-label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 1px;
+  background: var(--gold-lt);
+}
+
+.section-label::before {
+  left: -70px;
+}
+
+.section-label::after {
+  right: -70px;
+}
+
+/* ===== TITLE ===== */
+.testimonials__title {
+  font-family: var(--ff-display);
+  font-size: 3rem;
+  color: var(--white);
+}
+
+.testimonials__title em {
+  color: var(--gold-lt);
+  font-style: italic;
+}
+
+/* ===== GRID ===== */
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* ===== CARD ===== */
+.testi-card {
+  background: linear-gradient(145deg, #2a1206, #1a0a00);
+  border-radius: 20px;
+  padding: 2rem;
+  color: var(--white);
+  position: relative;
+  transition: var(--transition);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.testi-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== QUOTE ===== */
+.testi-card__quote {
+  font-size: 3rem;
+  color: var(--gold-lt);
+  opacity: 0.4;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== STARS ===== */
+.testi-card__stars {
+  color: var(--gold-lt);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+/* ===== TEXT ===== */
+.testi-card__text {
+  color: #e6d8c9;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== AUTHOR ===== */
+.testi-card__author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ===== AVATAR ===== */
+.testi-card__avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff8c00, #c46a0e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* ===== NAME ===== */
+.testi-card__name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* ===== CITY ===== */
+.testi-card__city {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .testimonials__title {
+    font-size: 2.2rem;
+  }
+
+  .section-label::before,
+  .section-label::after {
+    display: none;
+  }
+}
