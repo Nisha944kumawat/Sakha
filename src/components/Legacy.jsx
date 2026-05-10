@@ -1,6 +1,6 @@
 
 import "./Legacy.css";
-import LegacyImg from "../components/legacy.jpeg";
+import LegacyImg from "./Legacy.jpeg";
 const Legacy = () => {
   return (
     <section className="legacy">

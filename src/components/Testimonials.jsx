@@ -1,5 +1,5 @@
 
-import "./testimonials.css";
+import "./Testimonials.css";
 
 const Testimonials = () => {
   return (
