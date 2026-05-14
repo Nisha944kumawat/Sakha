@@ -97,7 +97,7 @@ const Legacy = () => {
           </div>
 
           {/* BUTTON */}
-          <a href="/about-us" className="btn-primary">
+          <a href="/about" className="btn-primary">
             Read Our Story →
           </a>
 

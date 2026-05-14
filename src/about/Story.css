@@ -17,6 +17,8 @@
 .about-story__img-wrap {
   position: relative;
   height: 100%;
+  overflow: hidden; /* ✅ IMPORTANT FIX */
+  border-radius: 20px; /* ✅ keeps rotating text inside image */
 }
 
 .about-story__img-main {
@@ -43,10 +45,11 @@
 /* Rotating circle text */
 .about-story__rotating {
   position: absolute;
-  left: -50px;
-  top: 30px;
+  left: 18px; /* ✅ inside image */
+  top: 18px;  /* ✅ top left corner */
   width: 100px;
   height: 100px;
+  z-index: 2;
   animation: rotateText 12s linear infinite;
 }
 
@@ -74,10 +77,10 @@
 
 /* WHO WE ARE label */
 .about-labele {
-  display: flex;              /* ✅ important */
+  display: flex;              
   align-items: center;
-  justify-content: center;    /* ✅ center text */
-  gap: 12px;                  /* space between line & text */
+  justify-content: center;    
+  gap: 12px;                  
 
   color: var(--saffron);
   font-size: 0.85rem;
@@ -91,7 +94,7 @@
 .about-labele::before,
 .about-labele::after {
   content: "";
-  width: 40px;               /* same size both sides */
+  width: 40px;
   height: 1px;
   background: var(--saffron);
   display: block;
@@ -103,7 +106,7 @@
   font-size: 2.6rem;
   line-height: 1.2;
   color: var(--ink);
-  margin: 0; /* ✅ remove extra space */
+  margin: 0;
 }
 
 .about-story__title span {
@@ -117,7 +120,7 @@
   font-size: 0.9rem;
   line-height: 1.6;
   color: var(--muted);
-  margin: 0; /* ✅ remove gap */
+  margin: 0;
 }
 
 .about-story__text strong {
@@ -142,7 +145,8 @@
   }
 
   .about-story__rotating {
-    left: 0;
+    left: 14px;
+    top: 14px;
   }
 
   .about-story__title {
@@ -161,6 +165,13 @@
 
   .about-story__img-main {
     max-height: 280px;
+  }
+
+  .about-story__rotating {
+    width: 82px;
+    height: 82px;
+    left: 10px;
+    top: 10px;
   }
 
   .about-story__title {

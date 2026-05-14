@@ -30,7 +30,7 @@ const Products = () => {
 
           <a
             className="products__link"
-            href="/products/sakha"
+            href="/sakha"
             data-discover="true"
           >
             View All Products →
@@ -60,7 +60,11 @@ const Products = () => {
               </div>
 
               <div className="product-card__footer">
-                <span className="product-card__cta">Explore →</span>
+                <a href="/sakha" className="product-card__link">
+                  <span className="product-card__cta">
+                  Explore →
+                </span>
+                </a>
                 <span className="product-card__icon">🌿</span>
               </div>
             </div>
@@ -85,7 +89,11 @@ const Products = () => {
               </div>
 
               <div className="product-card__footer">
-                <span className="product-card__cta">Explore →</span>
+                <a href="/sakha" className="product-card__link">
+                  <span className="product-card__cta">
+                  Explore →
+                </span>
+                </a>
                 <span className="product-card__icon">🌿</span>
               </div>
             </div>
@@ -110,7 +118,11 @@ const Products = () => {
               </div>
 
               <div className="product-card__footer">
-                <span className="product-card__cta">Explore →</span>
+                <a href="/sakha" className="product-card__link">
+                  <span className="product-card__cta">
+                  Explore →
+                </span>
+                </a>
                 <span className="product-card__icon">🌿</span>
               </div>
             </div>
@@ -136,7 +148,11 @@ const Products = () => {
               </div>
 
               <div className="product-card__footer">
-                <span className="product-card__cta">Explore →</span>
+                <a href="/sakha" className="product-card__link">
+                  <span className="product-card__cta">
+                  Explore →
+                </span>
+                </a>
                 <span className="product-card__icon">🌿</span>
               </div>
             </div>
@@ -165,7 +181,11 @@ const Products = () => {
               </div>
 
               <div className="product-card__footer">
-                <span className="product-card__cta">Explore →</span>
+                <a href="/shrinathji" className="product-card__link">
+                  <span className="product-card__cta">
+                    Explore →
+                  </span>
+                </a>
                 <span className="product-card__icon">✨</span>
               </div>
             </div>
@@ -190,7 +210,11 @@ const Products = () => {
               </div>
 
               <div className="product-card__footer">
-                <span className="product-card__cta">Explore →</span>
+                <a href="/shrinathji" className="product-card__link">
+                  <span className="product-card__cta">
+                    Explore →
+                  </span>
+                </a>
                 <span className="product-card__icon">✨</span>
               </div>
             </div>
@@ -215,7 +239,11 @@ const Products = () => {
               </div>
 
               <div className="product-card__footer">
-                <span className="product-card__cta">Explore →</span>
+                <a href="/shrinathji" className="product-card__link">
+                  <span className="product-card__cta">
+                    Explore →
+                  </span>
+                </a>
                 <span className="product-card__icon">✨</span>
               </div>
             </div>
@@ -240,7 +268,11 @@ const Products = () => {
               </div>
 
               <div className="product-card__footer">
-                <span className="product-card__cta">Explore →</span>
+                <a href="/shrinathji" className="product-card__link">
+                  <span className="product-card__cta">
+                    Explore →
+                  </span>
+                </a>
                 <span className="product-card__icon">✨</span>
               </div>
             </div>

@@ -88,6 +88,9 @@
 .products__link:hover::after {
   width: 60%;
 }
+.product-card__link {
+  text-decoration: none;
+}
 
 /* ===== GRID ===== */
 .products__grid {

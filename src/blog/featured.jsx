@@ -13,7 +13,7 @@ const featured = () => {
             Featured Story
           </h2>
 
-          <a href="#all-posts" className="blogs-all-link">
+          <a href="#all-postss" className="blogs-all-link">
             All Articles →
           </a>
         </div>
@@ -68,7 +68,7 @@ const featured = () => {
             </p>
 
             {/* BUTTON */}
-            <a href="#" className="featured-card__cta">
+            <a href="#all-postss" className="featured-card__cta">
               Read Full Article →
             </a>
 

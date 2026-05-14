@@ -23,7 +23,7 @@ const Story = () => {
                 fontFamily="Jost, sans-serif"
                 fontWeight="600"
                 letterSpacing="3.2"
-                fill="#C8410B"
+                fill="#000"
               >
                 <textPath href="#circlePath">
                   PURE • AUTHENTIC • TRUSTED •

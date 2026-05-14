@@ -1,6 +1,8 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Sakha from "./pages/Sakha";
@@ -14,7 +16,7 @@ function App() {
   return (
     <>
       <Header />
-
+  <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />

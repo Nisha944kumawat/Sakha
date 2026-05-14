@@ -143,27 +143,117 @@
 /* ===============================
    RESPONSIVE
 ================================= */
+/* ===============================
+   RESPONSIVE
+================================= */
+
 @media (max-width: 992px) {
+
+  .about-hero {
+    min-height: auto;
+    background: #000;
+  }
+
+  /* IMAGE FULL SHOW */
+  .about-hero__bg {
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;   /* 🔥 image cut nahi hogi */
+    display: block;
+
+    inset: unset;
+  }
+
+  /* overlay image ke upar properly */
+  .about-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+
+  /* content agar future me add kro */
+  .about-hero__content {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 2rem;
+    z-index: 4;
+  }
+
   .about-hero__title {
     font-size: 2.5rem;
   }
 
+  /* stats */
   .about-stats__inner {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 }
 
+
+/* MOBILE */
 @media (max-width: 576px) {
-  .about-hero__title {
-    font-size: 2rem;
+
+  .about-hero {
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  /* 🔥 PURI IMAGE SHOW HOGI */
+  .about-hero__bg {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;   /* cut nahi hogi */
+    object-position: center;
+
+    display: block;
+  }
+
+  .about-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
   }
 
   .about-hero__content {
-    padding: 3rem 1.5rem 5rem;
+    position: absolute;
+    inset: 0;
+
+    padding: 1.5rem;
+    z-index: 4;
+  }
+
+  .about-hero__title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  /* STATS */
+  .about-stats {
+    padding: 1rem;
   }
 
   .about-stats__inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .about-stat__num {
+    font-size: 1.6rem;
+  }
+
+  .about-stat__label {
+    font-size: 0.68rem;
+    letter-spacing: 1px;
   }
 }

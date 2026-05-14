@@ -37,9 +37,11 @@ const Brands = () => {
             <div className="brand-card__overlay"></div>
 
             <div className="brand-card__content">
-              <span className="brand-card__tag">
+              <a href="/sakha" className="brand-card__link">
+                <span className="brand-card__tag">
                 Everyday Essentials
               </span>
+              </a>
 
               <div className="brand-card__name">Sakha</div>
 
@@ -61,9 +63,11 @@ const Brands = () => {
             <div className="brand-card__overlay"></div>
 
             <div className="brand-card__content">
-              <span className="brand-card__tag">
-                Traditional Blends
-              </span>
+              <a href="/shrinathji" className="brand-card__link">
+                <span className="brand-card__tag">
+                  Traditional Blends
+                </span>
+              </a>
 
               <div className="brand-card__name">
                 Shrinath Ji

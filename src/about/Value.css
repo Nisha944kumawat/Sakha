@@ -122,22 +122,87 @@
 }
 
 /* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE ===== */
+
 @media (max-width: 992px) {
   .about-values__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+
+/* ===== MOBILE SCROLL CARDS ===== */
+
 @media (max-width: 640px) {
+
   .about-values {
-    padding: 4rem 1rem;
+    padding: 4rem 0;
+    overflow: hidden;
   }
 
-  .about-values__grid {
-    grid-template-columns: 1fr;
+  .about-values__inner {
+    width: 100%;
+  }
+
+  .about-values__header {
+    padding: 0 1rem;
+    margin-bottom: 2.5rem;
   }
 
   .about-values__title {
     font-size: 2rem;
+    line-height: 1.25;
+  }
+
+  /* HORIZONTAL SCROLL */
+  .about-values__grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    gap: 1rem;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+  }
+
+  .about-values__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ONE CARD AT A TIME */
+  .value-card {
+    flex: 0 0 88%;
+    min-width: 88%;
+
+    scroll-snap-align: center;
+
+    padding: 1.6rem;
+
+    border-radius: 22px;
+  }
+
+  .value-card__icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .value-card__title {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-bottom: 0.7rem;
+  }
+
+  .value-card__text {
+    font-size: 0.92rem;
+    line-height: 1.7;
   }
 }

@@ -2,7 +2,7 @@
    SakhaCta.css
 ========================= */
 
-.sakha-cta {
+.bulkorder-cta {
   position: relative;
   overflow: hidden;
 
@@ -13,25 +13,25 @@
   align-items: center;
 
   /* ===== BACKGROUND ===== */
-background-image:
-  linear-gradient(
-    to right,
+  background-image:
+    linear-gradient(
+      to right,
 
-    /* LEFT SIDE COLORS */
-    rgba(122, 92, 58, 0.92) 0%,
-    rgba(200, 65, 11, 0.88) 22%,
-    rgba(26, 10, 0, 0.78) 42%,
+      /* LEFT SIDE COLORS */
+      rgba(122, 92, 58, 0.92) 0%,
+      rgba(200, 65, 11, 0.88) 22%,
+      rgba(26, 10, 0, 0.78) 42%,
 
-    /* SOFT FADE */
-    rgba(0, 0, 0, 0.28) 58%,
+      /* SOFT FADE */
+      rgba(0, 0, 0, 0.28) 58%,
 
-    /* TRANSPARENT */
-    rgba(0, 0, 0, 0.04) 72%,
+      /* TRANSPARENT */
+      rgba(0, 0, 0, 0.04) 72%,
 
-    transparent 100%
-  ),
+      transparent 100%
+    ),
 
-  url("../about/brands1.png");
+    url("../about/brands1.png");
 
   /* LEFT = gradient | RIGHT = image */
   background-position: left center, right center;
@@ -46,7 +46,7 @@ background-image:
 
 /* ===== SOFT OVERLAY ===== */
 
-.sakha-cta::before {
+.bulkorder-cta::before {
   content: "";
 
   position: absolute;
@@ -71,7 +71,7 @@ background-image:
    INNER CONTENT
 ========================= */
 
-.sakha-cta__inner {
+.bulkorder-cta__inner {
   position: relative;
   z-index: 2;
 
@@ -91,7 +91,7 @@ background-image:
    TITLE
 ========================= */
 
-.sakha-cta__title {
+.bulkorder-cta__title {
   font-family: "Cormorant Garamond", serif;
 
   font-size: clamp(54px, 6vw, 92px);
@@ -108,7 +108,7 @@ background-image:
     0 3px 14px rgba(0, 0, 0, 0.35);
 }
 
-.sakha-cta__title em {
+.bulkorder-cta__title em {
   font-style: italic;
   font-weight: 600;
 
@@ -119,7 +119,7 @@ background-image:
    TEXT
 ========================= */
 
-.sakha-cta__text {
+.bulkorder-cta__text {
   max-width: 720px;
 
   font-family: "Jost", sans-serif;
@@ -136,7 +136,7 @@ background-image:
    BUTTON
 ========================= */
 
-.sakha-cta__btn {
+.bulkorder-cta__btn {
   margin-top: 34px;
 
   display: inline-flex;
@@ -152,7 +152,7 @@ background-image:
 
   border-radius: 999px;
 
- background: linear-gradient(
+  background: linear-gradient(
     135deg,
     var(--saffron),
     var(--gold-lt)
@@ -177,10 +177,10 @@ background-image:
     box-shadow 0.25s ease;
 }
 
-.sakha-cta__btn:hover {
+.bulkorder-cta__btn:hover {
   transform: translateY(-4px);
 
-   background: linear-gradient(
+  background: linear-gradient(
     135deg,
     var(--gold-lt),
     var(--saffron)
@@ -192,44 +192,8 @@ background-image:
     0 16px 34px rgba(0, 0, 0, 0.28);
 }
 
-.sakha-cta__btn:active {
+.bulkorder-cta__btn:active {
   transform: scale(0.97);
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 992px) {
-
-  .sakha-cta {
-    padding: 60px 24px;
-
-    background-size: cover, cover;
-  }
-
-  .sakha-cta__inner {
-    padding-left: 20px;
-  }
-
-  .sakha-cta__title {
-    font-size: clamp(46px, 7vw, 70px);
-
-    margin-bottom: 18px;
-  }
-
-  .sakha-cta__text {
-    max-width: 620px;
-
-    font-size: 19px;
-  }
-
-  .sakha-cta__btn {
-    min-width: 220px;
-    height: 66px;
-
-    font-size: 24px;
-  }
 }
 
 /* =========================
@@ -238,33 +202,59 @@ background-image:
 
 @media (max-width: 768px) {
 
-  .sakha-cta {
-    padding: 55px 20px;
+  .bulkorder-cta {
 
-    background-position: center;
-    background-size: cover;
+    /* LITTLE EXTRA GAP */
+    padding: 55px 0 270px;
 
-    justify-content: center;
-  }
+    justify-content: flex-start;
 
-  .sakha-cta::before {
-    background:
+    background-image:
       linear-gradient(
         to bottom,
-        rgba(0,0,0,0.82),
-        rgba(0,0,0,0.68)
-      );
+
+        rgba(0,0,0,0.82) 0%,
+        rgba(0,0,0,0.68) 10%,
+
+        rgba(0,0,0,0.15) 18%,
+        transparent 26%
+      ),
+
+      url("../about/brands1.png");
+
+    background-position:
+      center,
+      center bottom;
+
+    /* IMAGE FULL WIDTH */
+    background-size:
+      cover,
+      100% auto;
+
+    background-repeat:
+      no-repeat,
+      no-repeat;
   }
 
-  .sakha-cta__inner {
+  .bulkorder-cta::before {
+    display: none;
+  }
+
+  .bulkorder-cta__inner {
+
     align-items: center;
 
     text-align: center;
 
     padding-left: 0;
+
+    padding-inline: 20px;
+
+    width: 100%;
   }
 
-  .sakha-cta__title {
+  .bulkorder-cta__title {
+
     font-size: clamp(38px, 10vw, 58px);
 
     line-height: 1.08;
@@ -272,14 +262,21 @@ background-image:
     margin-bottom: 18px;
   }
 
-  .sakha-cta__text {
+  .bulkorder-cta__text {
+
     font-size: 17px;
 
     line-height: 1.7;
+
+    margin-bottom: 10px;
   }
 
-  .sakha-cta__btn {
-    margin-top: 28px;
+  .bulkorder-cta__btn {
+
+    margin-top: 18px;
+
+    /* LITTLE GAP ABOVE IMAGE */
+    margin-bottom: 28px;
 
     width: 100%;
     max-width: 280px;
@@ -296,19 +293,27 @@ background-image:
 
 @media (max-width: 480px) {
 
-  .sakha-cta {
-    padding: 50px 18px;
+  .bulkorder-cta {
+
+    padding: 50px 0 250px;
+
+    background-size:
+      cover,
+      100% auto;
   }
 
-  .sakha-cta__title {
+  .bulkorder-cta__title {
     font-size: 34px;
   }
 
-  .sakha-cta__text {
+  .bulkorder-cta__text {
     font-size: 15.5px;
   }
 
-  .sakha-cta__btn {
+  .bulkorder-cta__btn {
+
+    margin-bottom: 24px;
+
     height: 56px;
 
     font-size: 19px;

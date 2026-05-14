@@ -1,5 +1,7 @@
 import logo from "../assets/logo.png";
 import "./Footer.css";
+import { IoIosContact } from "react-icons/io";
+import { FaWhatsapp, FaPhoneAlt, FaFacebookF, FaInstagram,FaCertificate, FaBuilding } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -19,7 +21,7 @@ const Footer = () => {
             </h3>
           </div>
 
-          <a href="/contact-us" className="footer__cta-btn">
+          <a href="/contact" className="footer__cta-btn">
             Get in Touch →
           </a>
         </div>
@@ -47,21 +49,78 @@ const Footer = () => {
             <p className="footer__tagline">
               From the heart of India's spice trails – pure, aromatic, and crafted with generations of tradition.
             </p>
+            
+            {/* ===== LEGAL INFO ===== */}
+<div className="footer__legal-info">
+
+  <div className="footer__legal-item">
+    <span className="footer__legal-icon">
+      <FaCertificate />
+    </span>
+
+    <span>
+      FSSAI Lic. No. 12223026000048
+    </span>
+  </div>
+
+  <div className="footer__legal-item">
+    <span className="footer__legal-icon">
+      <FaBuilding />
+    </span>
+
+    <span>
+      CIN No. U15499RJ2010PTC033117
+    </span>
+  </div>
+
+</div>
 
             {/* Socials */}
             <div className="footer__socials">
-              <a href="#" className="footer__social-btn" aria-label="Instagram">
-                <span>Instagram</span>
-              </a>
 
-              <a href="#" className="footer__social-btn" aria-label="Facebook">
-                <span>Facebook</span>
-              </a>
+  {/* WhatsApp */}
+  <a
+    href="https://wa.me/919314508970"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="footer__social-btn"
+    aria-label="WhatsApp"
+  >
+    <FaWhatsapp />
+  </a>
 
-              <a href="#" className="footer__social-btn" aria-label="WhatsApp">
-                <span>WhatsApp</span>
-              </a>
-            </div>
+  {/* Call */}
+  <a
+    href="tel:+919314508970"
+    className="footer__social-btn"
+    aria-label="Call"
+  >
+    <FaPhoneAlt />
+  </a>
+
+  {/* Facebook */}
+<a
+  href="https://facebook.com/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="footer__social-btn"
+  aria-label="Facebook"
+>
+  <FaFacebookF />
+</a>
+
+{/* Instagram */}
+<a
+  href="https://www.instagram.com/sakhaspices?igsh=ZGxzc3JkN3B3MjBk"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="footer__social-btn"
+  aria-label="Instagram"
+>
+  <FaInstagram />
+</a>
+
+</div>
           </div>
 
           {/* ===== NAVIGATE ===== */}
@@ -77,7 +136,7 @@ const Footer = () => {
               </li>
 
               <li>
-                <a href="/about-us" className="footer__link">
+                <a href="/about" className="footer__link">
                   <span className="footer__link-arrow">→</span>
                   About Us
                 </a>
@@ -91,7 +150,7 @@ const Footer = () => {
               </li>
 
               <li>
-                <a href="/contact-us" className="footer__link">
+                <a href="/contact" className="footer__link">
                   <span className="footer__link-arrow">→</span>
                   Contact Us
                 </a>
@@ -105,14 +164,13 @@ const Footer = () => {
 
             <ul className="footer__links">
               <li>
-                <a href="/products/sakha" className="footer__link footer__link--product">
-                  <span className="footer__product-dot footer__product-dot--green"></span>
+                <a href="/sakha" className="footer__link footer__link--product">
+                  <span className="footer__product-dot footer__product-dot--gold"></span>
                   Sakha Range
                 </a>
               </li>
-
               <li>
-                <a href="/products/shrinath-ji" className="footer__link footer__link--product">
+                <a href="/shrinathji" className="footer__link footer__link--product">
                   <span className="footer__product-dot footer__product-dot--gold"></span>
                   Shrinath Ji Range
                 </a>
@@ -120,20 +178,20 @@ const Footer = () => {
             </ul>
 
             {/* ===== LEGAL ===== */}
-            <h4 className="footer__col-title footer__col-title--mt">Legal</h4>
+            <h4 className="footer__col-title footer__col-title--mt">TIMINGS</h4>
 
             <ul className="footer__links">
               <li>
-                <a href="/privacy-policy" className="footer__link">
+                <a className="footer__link">
                   <span className="footer__link-arrow">→</span>
-                  Privacy Policy
+                  Mon-Sat (09:00 AM - 06:00 PM) 
                 </a>
               </li>
 
               <li>
-                <a href="/terms" className="footer__link">
+                <a className="footer__link">
                   <span className="footer__link-arrow">→</span>
-                  Terms of Use
+                  Sunday (09:00 AM - 04:00 PM)
                 </a>
               </li>
             </ul>
@@ -147,20 +205,31 @@ const Footer = () => {
 
               <li className="footer__contact-item">
                 <span className="footer__contact-icon">📍</span>
-                <span>Rajkot, Gujarat, India</span>
+                <span>SHYAM SAKHA INDUSTRIES PVT. LTD. <br/>
+
+        Khasra No. 675,677,678, <br/>
+          Village : Harota, Tehsil : Chomu,
+         Dist.: Jaipur, Rajasthan-303702. (INDIA)</span>
               </li>
 
               <li className="footer__contact-item">
-                <span className="footer__contact-icon">✉️</span>
-                <a href="mailto:hello@sakhaspices.com" className="footer__contact-link">
-                  hello@sakhaspices.com
+                <span className="footer__contact-icon">
+                  <IoIosContact />
+                </span>
+                <span>Mahesh Agarwal (Director Proprietor)</span>
+              </li>
+
+              <li className="footer__contact-item">
+                <span className="footer__contact-icon">📞</span>
+                <a href="tel:+919314508970" className="footer__contact-link">
+                  +91 9314508970
                 </a>
               </li>
 
               <li className="footer__contact-item">
                 <span className="footer__contact-icon">📞</span>
-                <a href="tel:+919876543210" className="footer__contact-link">
-                  +91 98765 43210
+                <a href="tel:+919024137851" className="footer__contact-link">
+                  +91 9024137851
                 </a>
               </li>
 

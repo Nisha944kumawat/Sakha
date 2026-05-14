@@ -1,4 +1,7 @@
-// SakhaGrid.jsx
+// ShrinathGrid.jsx
+
+import { useState } from "react";
+
 import s1 from "./sh1.png";
 import s2 from "./sh2.png";
 import s3 from "./sh3.png";
@@ -11,18 +14,140 @@ import s9 from "./sh9.png";
 import s10 from "./sh10.png";
 import s11 from "./sh11.png";
 import s12 from "./sh12.png";
-import  "./SakhaGrid.css";
+
+import "./SakhaGrid.css";
 
 const ShrinathGrid = () => {
+
+  // ✅ SIZE STATE
+  const [selectedSizes, setSelectedSizes] = useState({});
+
+  // ✅ HANDLE SIZE SELECT
+  const handleSizeSelect = (productName, size) => {
+    setSelectedSizes((prev) => ({
+      ...prev,
+      [productName]: size,
+    }));
+  };
+
+  // ✅ WHATSAPP FUNCTION
+// ✅ HANDLE ENQUIRE FUNCTION replace karo
+
+const handleEnquire = (productName, description) => {
+
+  const selectedSize =
+    selectedSizes[productName] || "No size selected";
+
+  const message = `Hello Shrinath,
+
+I want to enquire about this product:
+
+🛍 Product: ${productName}
+📦 Selected Size: ${selectedSize}
+📝 Description: ${description}`;
+
+  window.open(
+    `https://wa.me/919314508970?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+
+  // ✅ ENQUIRE ke baad selected size remove ho jayega
+  setSelectedSizes((prev) => ({
+    ...prev,
+    [productName]: "",
+  }));
+};
+
+  // ✅ PRODUCTS DATA
+  const products = [
+    {
+      img: s1,
+      name: "Carom (अजवाइन)",
+      desc: "Pure and aromatic Carom Seeds for rich flavor and everyday freshness.",
+      sizes: ["100g", "250g", "500g"],
+    },
+    {
+      img: s2,
+      name: "Baking Soda (मीठा सोडा)",
+      desc: "Pure and effective Baking Soda for perfect softness in every recipe.",
+      sizes: ["50g", "100g", "250g"],
+    },
+    {
+      img: s3,
+      name: "Black Pepper (काली मिर्च)",
+      desc: "Bold and aromatic Black Pepper for rich flavor in every bite.",
+      sizes: ["50g", "100g", "500g"],
+    },
+    {
+      img: s4,
+      name: "Black Salt (काला नमक)",
+      desc: "Pure and tangy Black Salt to enhance the flavor of every dish.",
+      sizes: ["250g", "500g", "1kg"],
+    },
+    {
+      img: s5,
+      name: "Hot Spices (गरम मसाला)",
+      desc: "Rich and aromatic Garam Masala for authentic taste in every dish.",
+      sizes: ["100g", "250g", "500g"],
+    },
+    {
+      img: s6,
+      name: "Cardamom (इलायची)",
+      desc: "Bold and smoky Cardamom for rich aroma and authentic flavor.",
+      sizes: ["50g", "100g", "250g"],
+    },
+    {
+      img: s7,
+      name: "Coriander (धनिया साबुत)",
+      desc: "Freshly milled coriander with a citrusy, nutty aroma.",
+      sizes: ["250g", "500g", "1kg"],
+    },
+    {
+      img: s8,
+      name: "Cumin (जीरा)",
+      desc: "Fresh and aromatic Cumin for rich flavor in every recipe.",
+      sizes: ["100g", "250g", "500g"],
+    },
+    {
+      img: s9,
+      name: "Fenugreek Seeds (मेथी)",
+      desc: "Pure and flavorful Fenugreek Seeds for authentic taste and freshness.",
+      sizes: ["50g", "100g", "250g"],
+    },
+    {
+      img: s10,
+      name: "Mustard (राई)",
+      desc: "Fresh and pure Mustard Seeds for rich taste in every meal.",
+      sizes: ["100g", "250g", "500g"],
+    },
+    {
+      img: s11,
+      name: "Rock salt (सेंधा नमक)",
+      desc: "Pure and natural Rock Salt for healthy and delicious flavor.",
+      sizes: ["100g", "250g", "500g"],
+    },
+    {
+      img: s12,
+      name: "Sesame (तिल)",
+      desc: "Fresh and nutritious Sesame for rich taste and natural goodness.",
+      sizes: ["250g", "500g", "1kg"],
+    },
+  ];
+
   return (
- <section className="products">
+    <section className="products">
+
       <div className="products__inner">
 
         {/* HEADER */}
         <div className="products__header">
 
           <div>
-            <div className="section-label" style={{ color: "var(--gold-lt)" }}>
+
+            <div
+              className="section-label"
+              style={{ color: "var(--gold-lt)" }}
+            >
               Our Range
             </div>
 
@@ -31,443 +156,96 @@ const ShrinathGrid = () => {
               <br />
               <em>One Standard</em> of Purity
             </h2>
-          </div>
 
-          <a
-            className="products__link"
-            href="/products/sakha"
-            data-discover="true"
-          >
-            View All Products →
-          </a>
+          </div>
 
         </div>
 
         {/* PRODUCTS GRID */}
         <div className="products__grid">
 
-          {/* CARD 1 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s1}
-                alt="Haldi Powder"
-              />
-              <span className="product-card__tag">Shrinath</span>
-            </div>
+          {products.map((product, index) => (
 
-            <div className="product-card__body">
-              <div className="product-card__brand">Shrinath Range</div>
-              <div className="product-card__name">Carom (अजवाइन)</div>
-              <div className="product-card__desc">
-               Pure and aromatic Carom Seeds for rich flavor and everyday freshness.
+            <div className="product-card" key={index}>
+
+              <div className="product-card__img-wrap">
+
+                <img
+                  className="product-card__img"
+                  src={product.img}
+                  alt={product.name}
+                />
+
+                <span className="product-card__tag">
+                  Shrinath
+                </span>
+
               </div>
 
-            <div className="product-card__footer">
+              <div className="product-card__body">
 
-  <button className="product-card__cta">
-    Enquire
-  </button>
+                <div className="product-card__brand">
+                  Shrinath Range
+                </div>
 
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-  </div>
+                <div className="product-card__name">
+                  {product.name}
+                </div>
 
-</div>
-            </div>
-          </div>
+                <div className="product-card__desc">
+                  {product.desc}
+                </div>
 
-          {/* CARD 2 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s2}
-                alt="Lal Mirch"
-              />
-              <span className="product-card__tag">Shrinath</span>
-            </div>
+                <div className="product-card__footer">
 
-            <div className="product-card__body">
-              <div className="product-card__brand">Shrinath Range</div>
-              <div className="product-card__name">Baking Soda (मीठा सोडा)</div>
-              <div className="product-card__desc">
-                Pure and effective Baking Soda for perfect softness in every recipe.
-              </div>
-                           <div className="product-card__footer">
+                  {/* ENQUIRE BUTTON */}
+                  <button
+                    className="product-card__cta"
+                    onClick={() =>
+                      handleEnquire(
+                        product.name,
+                        product.desc
+                      )
+                    }
+                  >
+                    Enquire
+                  </button>
 
-  <button className="product-card__cta">
-    Enquire
-  </button>
+                  {/* SIZES */}
+                  <div className="product-card__sizes">
 
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">50g</span>
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-  </div>
+                    {product.sizes.map((size, i) => (
 
-</div>
-            
-            </div>
-          </div>
+                      <span
+                        key={i}
+                        className={`sakha-card__size ${
+                          selectedSizes[product.name] === size
+                            ? "active-size"
+                            : ""
+                        }`}
+                        onClick={() =>
+                          handleSizeSelect(product.name, size)
+                        }
+                      >
+                        {size}
+                      </span>
 
-          {/* CARD 3 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s3}
-                alt="Cloves"
-              />
-              <span className="product-card__tag">Shrinath</span>
-            </div>
+                    ))}
 
-            <div className="product-card__body">
-              <div className="product-card__brand">Shrinath Range</div>
-              <div className="product-card__name">Black Pepper (काली मिर्च)</div>
-              <div className="product-card__desc">
-                Bold and aromatic Black Pepper for rich flavor in every bite.
+                  </div>
+
+                </div>
+
               </div>
 
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">50g</span>
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">500g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 4 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s4}
-                alt="Fenugreek"
-                alt="Dhaniya Powder"
-              />
-              <span className="product-card__tag">Shrinath</span>
             </div>
 
-            <div className="product-card__body">
-              <div className="product-card__brand">Shrinath Range</div>
-              <div className="product-card__name">Black Salt (काला नमक)</div>
-              <div className="product-card__desc">
-                Pure and tangy Black Salt to enhance the flavor of every dish.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-    <span className="sakha-card__size">1kg</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-        </div>
-                {/* PRODUCTS GRID */}
-        <div className="products__grid">
-
-          {/* CARD 1 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s5}
-                alt="Sesame Seeds"
-              />
-              <span className="product-card__tag">Shrinath</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Shrinath Range</div>
-              <div className="product-card__name">Hot Spices (गरम मसाला)</div>
-              <div className="product-card__desc">
-               Rich and aromatic Garam Masala for authentic taste in every dish.
-              </div>
-
-                         <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 2 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s6}
-                alt="Black Cardamom"
-              />
-              <span className="product-card__tag">Shrinath</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Shrinath Range</div>
-              <div className="product-card__name">Cardamom (इलायची)</div>
-              <div className="product-card__desc">
-                Bold and smoky Cardamom for rich aroma and authentic flavor.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">50g</span>
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 3 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s7}
-                alt="Rock Salt"
-              />
-              <span className="product-card__tag">Shrinath</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Shrinath Range</div>
-                <div className="product-card__name">Coriander (धनिया साबुत)</div>
-              <div className="product-card__desc">
-                Freshly milled coriander with a citrusy, nutty aroma.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-    <span className="sakha-card__size">1kg</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 4 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s8}
-                alt="Mustard Seeds"
-              />
-              <span className="product-card__tag">Shrinath</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Shrinath Range</div>
-              <div className="product-card__name">Cumin (जीरा)</div>
-              <div className="product-card__desc">
-                Fresh and aromatic Cumin for rich flavor in every recipe.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-        </div>
-
-                        {/* PRODUCTS GRID */}
-        <div className="products__grid">
-
-          {/* CARD 1 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s9}
-                alt="Sesame Seeds"
-              />
-              <span className="product-card__tag">Shrinath</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Shrinath Range</div>
-              <div className="product-card__name">Fenugreek Seeds (मेथी)</div>
-              <div className="product-card__desc">
-                Pure and flavorful Fenugreek Seeds for authentic taste and freshness.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">50g</span>
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 2 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s10}
-                alt="FenugreekShri"
-              />
-              <span className="product-card__tag">Shrinath</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Shrinath Range</div>
-              <div className="product-card__name">Mustard (राई)</div>
-              <div className="product-card__desc">
-                Fresh and pure Mustard Seeds for rich taste in every meal.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 3 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s11}
-                alt="Rock Salt"
-              />
-              <span className="product-card__tag">Shrinath</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Shrinath Range</div>
-              <div className="product-card__name">Rock salt (सेंधा नमक)</div>
-              <div className="product-card__desc">
-                Pure and natural Rock Salt for healthy and delicious flavor.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 4 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s12}
-                alt="Mustard Seeds"
-              />
-              <span className="product-card__tag">Shrinath</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Shrinath Range</div>
-              <div className="product-card__name">Sesame (तिल)</div>
-              <div className="product-card__desc">
-                Fresh and nutritious Sesame for rich taste and natural goodness.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-    <span className="sakha-card__size">1kg</span>
-    
-  </div>
-
-</div>
-            </div>
-          </div>
+          ))}
 
         </div>
 
       </div>
+
     </section>
   );
 };

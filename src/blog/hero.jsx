@@ -1,4 +1,5 @@
 import "./hero.css";
+import Hero from "./hero.jpeg";
 
 const hero = () => {
   return (
@@ -6,7 +7,7 @@ const hero = () => {
 
       {/* Background Image */}
       <img
-        src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1600&q=80"
+        src={Hero}
         alt="Spices"
         className="blogs-hero__bg"
       />

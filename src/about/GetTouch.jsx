@@ -23,11 +23,11 @@ const GetTouch = () => {
 
       {/* Buttons */}
       <div className="about-cta__actions">
-        <a href="/contact-us" className="btn-primary">
+        <a href="/contact" className="btn-primary">
           Get in Touch →
         </a>
 
-        <a href="/products/sakha" className="btn-ghost">
+        <a href="/sakha" className="btn-ghost">
           Explore Products
         </a>
       </div>

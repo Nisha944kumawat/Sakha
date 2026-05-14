@@ -8,7 +8,7 @@ import b5 from "./b5.png";
 import b6 from "./b6.png";
 const grid = () => {
   return (
-    <section className="blogs-grid-section" id="all-posts">
+    <section className="blogs-grid-section" id="all-postss">
       <div className="blogs-grid-section__inner">
 
         {/* BLOG GRID */}

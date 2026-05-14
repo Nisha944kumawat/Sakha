@@ -1,5 +1,7 @@
 // SakhaGrid.jsx
 
+import { useState } from "react";
+
 import s1 from "./s1.png";
 import s2 from "./s2.png";
 import s3 from "./s3.png";
@@ -12,18 +14,140 @@ import s9 from "./s9.png";
 import s10 from "./s10.png";
 import s11 from "./s11.png";
 import s12 from "./s12.png";
-import  "./SakhaGrid.css";
+
+import "./SakhaGrid.css";
 
 const SakhaGrid = () => {
+
+  // ✅ SIZE STATE
+  const [selectedSizes, setSelectedSizes] = useState({});
+
+  // ✅ SIZE SELECT
+  const handleSizeSelect = (productName, size) => {
+    setSelectedSizes((prev) => ({
+      ...prev,
+      [productName]: size,
+    }));
+  };
+
+  // ✅ WHATSAPP FUNCTION
+// ✅ HANDLE ENQUIRE FUNCTION replace karo
+
+const handleEnquire = (productName, description) => {
+
+  const selectedSize =
+    selectedSizes[productName] || "No size selected";
+
+  const message = `Hello Shakha,
+
+I want to enquire about this product:
+
+🛍 Product: ${productName}
+📦 Selected Size: ${selectedSize}
+📝 Description: ${description}`;
+
+  window.open(
+    `https://wa.me/919314508970?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+
+  // ✅ ENQUIRE ke baad selected size remove ho jayega
+  setSelectedSizes((prev) => ({
+    ...prev,
+    [productName]: "",
+  }));
+};
+
+  // ✅ PRODUCT DATA
+  const products = [
+    {
+      img: s1,
+      name: "Peanuts (मूँगफली)",
+      desc: "Premium-quality peanuts with a rich nutty taste and satisfying crunch.",
+      sizes: ["250g", "500g", "1kg"],
+    },
+    {
+      img: s2,
+      name: "Clove (लौंग)",
+      desc: "Premium-quality Clove with rich aroma and authentic flavor in every bite.",
+      sizes: ["50g", "100g", "250g"],
+    },
+    {
+      img: s3,
+      name: "Red Chilli (लाल मिर्च)",
+      desc: "Sun-dried red chillies, bold heat with vibrant colour & taste.",
+      sizes: ["250g", "500g", "1kg"],
+    },
+    {
+      img: s4,
+      name: "Mustard (सरसों)",
+      desc: "Pure and fresh Mustard packed with rich flavor for every kitchen.",
+      sizes: ["100g", "250g", "500g"],
+    },
+    {
+      img: s5,
+      name: "Fenugreek (मेथी)",
+      desc: "Fresh and aromatic Fenugreek for rich taste and natural goodness.",
+      sizes: ["100g", "250g", "500g"],
+    },
+    {
+      img: s6,
+      name: "Black Cardamom (काली इलायची)",
+      desc: "Bold and smoky Black Cardamom for rich aroma and authentic flavor.",
+      sizes: ["100g", "250g", "500g"],
+    },
+    {
+      img: s7,
+      name: "Black Mustard (राई)",
+      desc: "Fresh and flavorful Black Mustard to enhance every traditional recipe.",
+      sizes: ["250g", "500g", "1kg"],
+    },
+    {
+      img: s8,
+      name: "Nutmeg (जायफल)",
+      desc: "Rich and aromatic Nutmeg for warm flavor in every dish.",
+      sizes: ["100g", "250g", "500g"],
+    },
+    {
+      img: s9,
+      name: "Cinnamon (दालचीनी)",
+      desc: "Rich and aromatic Cinnamon for warm flavor in every dish.",
+      sizes: ["50g", "100g", "250g"],
+    },
+    {
+      img: s10,
+      name: "Hot Spices (गर्म मसाले)",
+      desc: "Premium Garam Masala blend for rich aroma and authentic taste.",
+      sizes: ["100g", "250g", "500g"],
+    },
+    {
+      img: s11,
+      name: "Fenugreek Leaves (मेथी)",
+      desc: "Fresh and flavorful Fenugreek Leaves to add natural taste to every meal.",
+      sizes: ["100g", "250g", "500g"],
+    },
+    {
+      img: s12,
+      name: "Coriander (धनिया साबुत)",
+      desc: "Freshly milled coriander with a citrusy, nutty aroma.",
+      sizes: ["100g", "250g", "500g"],
+    },
+  ];
+
   return (
- <section className="products">
+    <section className="products">
+
       <div className="products__inner">
 
         {/* HEADER */}
         <div className="products__header">
 
           <div>
-            <div className="section-label" style={{ color: "var(--gold-lt)" }}>
+
+            <div
+              className="section-label"
+              style={{ color: "var(--gold-lt)" }}
+            >
               Our Range
             </div>
 
@@ -32,443 +156,96 @@ const SakhaGrid = () => {
               <br />
               <em>One Standard</em> of Purity
             </h2>
-          </div>
 
-          <a
-            className="products__link"
-            href="/products/sakha"
-            data-discover="true"
-          >
-            View All Products →
-          </a>
+          </div>
 
         </div>
 
         {/* PRODUCTS GRID */}
         <div className="products__grid">
 
-          {/* CARD 1 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s1}
-                alt="Haldi Powder"
-              />
-              <span className="product-card__tag">Sakha</span>
-            </div>
+          {products.map((product, index) => (
 
-            <div className="product-card__body">
-              <div className="product-card__brand">Sakha Range</div>
-              <div className="product-card__name">Peanuts (मूँगफली)</div>
-              <div className="product-card__desc">
-               Premium-quality peanuts with a rich nutty taste and satisfying crunch.
+            <div className="product-card" key={index}>
+
+              <div className="product-card__img-wrap">
+
+                <img
+                  className="product-card__img"
+                  src={product.img}
+                  alt={product.name}
+                />
+
+                <span className="product-card__tag">
+                  Sakha
+                </span>
+
               </div>
 
-            <div className="product-card__footer">
+              <div className="product-card__body">
 
-  <button className="product-card__cta">
-    Enquire
-  </button>
+                <div className="product-card__brand">
+                  Sakha Range
+                </div>
 
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-    <span className="sakha-card__size">1kg</span>
-  </div>
+                <div className="product-card__name">
+                  {product.name}
+                </div>
 
-</div>
-            </div>
-          </div>
+                <div className="product-card__desc">
+                  {product.desc}
+                </div>
 
-          {/* CARD 2 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s2}
-                alt="Lal Mirch"
-              />
-              <span className="product-card__tag">Sakha</span>
-            </div>
+                <div className="product-card__footer">
 
-            <div className="product-card__body">
-              <div className="product-card__brand">Sakha Range</div>
-              <div className="product-card__name">Clove (लौंग)</div>
-              <div className="product-card__desc">
-                Premium-quality Clove with rich aroma and authentic flavor in every bite.
-              </div>
-                           <div className="product-card__footer">
+                  {/* ENQUIRE BUTTON */}
+                  <button
+                    className="product-card__cta"
+                    onClick={() =>
+                      handleEnquire(
+                        product.name,
+                        product.desc
+                      )
+                    }
+                  >
+                    Enquire
+                  </button>
 
-  <button className="product-card__cta">
-    Enquire
-  </button>
+                  {/* SIZES */}
+                  <div className="product-card__sizes">
 
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">50g</span>
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-  </div>
+                    {product.sizes.map((size, i) => (
 
-</div>
-            
-            </div>
-          </div>
+                      <span
+                        key={i}
+                        className={`sakha-card__size ${
+                          selectedSizes[product.name] === size
+                            ? "active-size"
+                            : ""
+                        }`}
+                        onClick={() =>
+                          handleSizeSelect(product.name, size)
+                        }
+                      >
+                        {size}
+                      </span>
 
-          {/* CARD 3 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s3}
-                alt="Cloves"
-              />
-              <span className="product-card__tag">Sakha</span>
-            </div>
+                    ))}
 
-            <div className="product-card__body">
-              <div className="product-card__brand">Sakha Range</div>
-              <div className="product-card__name">Red Chilli (लाल मिर्च)</div>
-              <div className="product-card__desc">
-                Sun-dried red chillies, bold heat with vibrant colour & taste.
+                  </div>
+
+                </div>
+
               </div>
 
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-    <span className="sakha-card__size">1kg</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 4 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s4}
-                alt="Fenugreek"
-                alt="Dhaniya Powder"
-              />
-              <span className="product-card__tag">Sakha</span>
             </div>
 
-            <div className="product-card__body">
-              <div className="product-card__brand">Sakha Range</div>
-              <div className="product-card__name">Mustard (सरसों)</div>
-              <div className="product-card__desc">
-                Pure and fresh Mustard packed with rich flavor for every kitchen.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-        </div>
-                {/* PRODUCTS GRID */}
-        <div className="products__grid">
-
-          {/* CARD 1 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s5}
-                alt="Sesame Seeds"
-              />
-              <span className="product-card__tag">Sakha</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Sakha Range</div>
-              <div className="product-card__name">Fenugreek (मेथी)</div>
-              <div className="product-card__desc">
-               Fresh and aromatic Fenugreek for rich taste and natural goodness.
-              </div>
-
-                         <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 2 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s6}
-                alt="Black Cardamom"
-              />
-              <span className="product-card__tag">Sakha</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Sakha Range</div>
-              <div className="product-card__name">Black Cardamom (काली इलायची)</div>
-              <div className="product-card__desc">
-                Bold and smoky Black Cardamom for rich aroma and authentic flavor.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 3 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s7}
-                alt="Rock Salt"
-              />
-              <span className="product-card__tag">Sakha</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Sakha Range</div>
-              <div className="product-card__name">Black Mustard (राई)</div>
-              <div className="product-card__desc">
-              Fresh and flavorful Black Mustard to enhance every traditional recipe.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-    <span className="sakha-card__size">1kg</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 4 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s8}
-                alt="Mustard Seeds"
-              />
-              <span className="product-card__tag">Sakha</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Sakha Range</div>
-              <div className="product-card__name">Nutmeg (जायफल)</div>
-              <div className="product-card__desc">
-                Rich and aromatic Nutmeg for warm flavor in every dish.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-        </div>
-
-                        {/* PRODUCTS GRID */}
-        <div className="products__grid">
-
-          {/* CARD 1 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s9}
-                alt="Sesame Seeds"
-              />
-              <span className="product-card__tag">Sakha</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Sakha Range</div>
-              <div className="product-card__name">Cinnamon (दालचीनी)</div>
-              <div className="product-card__desc">
-                Rich and aromatic Cinnamon for warm flavor in every dish.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">50g</span>
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 2 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s10}
-                alt="FenugreekShri"
-              />
-              <span className="product-card__tag">Sakha</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Sakha Range</div>
-              <div className="product-card__name">Hot Spices (गर्म मसाले)</div>
-              <div className="product-card__desc">
-                Premium Garam Masala blend for rich aroma and authentic taste.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 3 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s11}
-                alt="Rock Salt"
-              />
-              <span className="product-card__tag">Sakha</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Sakha Range</div>
-              <div className="product-card__name">Fenugreek Leaves (मेथी)</div>
-              <div className="product-card__desc">
-                Fresh and flavorful Fenugreek Leaves to add natural taste to every meal.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-  </div>
-
-</div>
-            </div>
-          </div>
-
-          {/* CARD 4 */}
-          <div className="product-card">
-            <div className="product-card__img-wrap">
-              <img
-                className="product-card__img"
-                src={s12}
-                alt="Mustard Seeds"
-              />
-              <span className="product-card__tag">Sakha</span>
-            </div>
-
-            <div className="product-card__body">
-              <div className="product-card__brand">Sakha Range</div>
-              <div className="product-card__name">Coriander (धनिया साबुत)</div>
-              <div className="product-card__desc">
-                Freshly milled coriander with a citrusy, nutty aroma.
-              </div>
-
-                          <div className="product-card__footer">
-
-  <button className="product-card__cta">
-    Enquire
-  </button>
-
-  <div className="product-card__sizes">
-    <span className="sakha-card__size">100g</span>
-    <span className="sakha-card__size">250g</span>
-    <span className="sakha-card__size">500g</span>
-    
-  </div>
-
-</div>
-            </div>
-          </div>
+          ))}
 
         </div>
 
       </div>
+
     </section>
   );
 };

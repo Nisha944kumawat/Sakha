@@ -99,3 +99,97 @@
   color: #eadfdf;
   margin-top: 6px;
 }
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+  .sakha-header {
+    padding: 52px 16px 26px;
+  }
+
+  /* MAIN LAYOUT */
+  .sakha-header__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    width: 100%;
+  }
+
+  /* LEFT CONTENT */
+  .sakha-header__left {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* TOP TEXT */
+  .sakha-header__eyebrow {
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+
+    /* single line */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* TITLE */
+  .sakha-header__title {
+    font-size: 48px;
+    line-height: 1.05;
+    margin-bottom: 12px;
+
+    /* single line */
+    white-space: nowrap;
+  }
+
+  /* SUBTITLE */
+  .sakha-header__sub {
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 100%;
+    color: #d7cccc;
+
+    /* proper full width */
+    display: block;
+  }
+
+  /* STATS WRAPPER */
+  .sakha-header__stats {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  /* EACH STAT */
+  .sakha-header__stats div {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+  }
+
+  /* NUMBER */
+  .sakha-stat__num {
+    font-size: 26px;
+    line-height: 1;
+
+    /* single line */
+    white-space: nowrap;
+  }
+
+  /* LABEL */
+  .sakha-stat__label {
+    font-size: 12px;
+    margin-top: 5px;
+
+    /* single line */
+    white-space: nowrap;
+  }
+}

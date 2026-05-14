@@ -153,20 +153,138 @@
 }
 
 /* ===== RESPONSIVE ===== */
+/* =========================================
+   RESPONSIVE HORIZONTAL SCROLL PROCESS
+========================================= */
+
 @media (max-width: 900px) {
-  .process__timeline {
-    grid-template-columns: 1fr;
+
+  .process {
+    padding: 3rem 0 5rem;
+    overflow: hidden;
   }
 
+  .process__inner {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* HEADER */
+  .process__header {
+    padding: 0 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .process__title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .process__sub {
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  /* HORIZONTAL SCROLL */
+  .process__timeline {
+    display: flex;
+    gap: 1rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    padding: 0 1rem 1rem;
+
+    scrollbar-width: none;
+  }
+
+  .process__timeline::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* REMOVE CENTER LINE */
   .process__timeline::before {
     display: none;
   }
 
+  /* SINGLE CARD VIEW */
   .process__tl-item {
-    border-left: none !important;
+    flex: 0 0 88%;
+    min-width: 88%;
+    max-width: 88%;
+
+    scroll-snap-align: center;
+
+    border: none !important;
+
+    background: rgba(255,255,255,0.03);
+
+    border-radius: 18px;
+
+    padding: 1.5rem 1.2rem;
+
+    margin: 0;
+
+    display: flex;
+    align-items: flex-start;
+
+    box-shadow:
+      0 10px 25px rgba(0,0,0,0.35);
   }
 
+  /* SPECIAL CARDS */
+  .process__tl-item:nth-child(4),
+  .process__tl-item:nth-child(7) {
+    background: rgba(255,255,255,0.05);
+    box-shadow:
+      0 12px 30px rgba(0,0,0,0.4);
+  }
+
+  /* LAST CARD */
   .process__tl-item:last-child {
-    grid-column: span 1;
+    grid-column: unset;
+
+    flex: 0 0 88%;
+    min-width: 88%;
+    max-width: 88%;
+
+    margin-top: 0;
+
+    padding: 1.5rem 1.2rem;
+
+    border-radius: 18px;
+  }
+
+  /* BODY */
+  .process__tl-body {
+    gap: 0.9rem;
+  }
+
+  .process__tl-title {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .process__tl-desc {
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
+  /* NUMBER */
+  .process__tl-num {
+    width: 42px;
+    height: 42px;
+    font-size: 0.75rem;
+
+    flex-shrink: 0;
+  }
+
+  /* ICON */
+  .process__tl-icon {
+    font-size: 1.1rem;
+    margin-top: 2px;
   }
 }
